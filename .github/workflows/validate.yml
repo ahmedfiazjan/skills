@@ -1,0 +1,40 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  skills:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check skills against the Agent Skills spec
+        run: node scripts/validate.mjs
+      - name: Check a version bump for every changed skill
+        if: github.event_name == 'pull_request'
+        run: node scripts/validate.mjs --since origin/${{ github.base_ref }}
+
+  claude-plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate the marketplace and every plugin with Claude Code
+        run: |
+          npx -y @anthropic-ai/claude-code plugin validate .
+          for dir in skills/*/; do npx -y @anthropic-ai/claude-code plugin validate "$dir"; done

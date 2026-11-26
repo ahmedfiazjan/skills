@@ -1,0 +1,13 @@
+{
+  "name": "ahmadfiazjan-skills",
+  "private": true,
+  "description": "Validation tooling for this skills repo. Users do not need to install anything.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "devDependencies": {
+    "yaml": "2.8.1"
+  }
+}

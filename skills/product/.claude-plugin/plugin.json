@@ -1,0 +1,16 @@
+{
+  "name": "ahmadfiazjan-product",
+  "version": "1.0.0",
+  "description": "Product skills: put a product in front of users and measure it, with privacy done properly.",
+  "author": {
+    "name": "Ahmad Fiaz Jan",
+    "url": "https://ahmadfiaz.me"
+  },
+  "homepage": "https://github.com/ahmedfiazjan/skills",
+  "repository": "https://github.com/ahmedfiazjan/skills",
+  "license": "MIT",
+  "keywords": ["analytics", "privacy", "self-hosted", "rybbit", "consent"],
+  "skills": [
+    "./add-rybbit-analytics"
+  ]
+}

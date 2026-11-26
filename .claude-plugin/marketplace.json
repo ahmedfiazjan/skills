@@ -1,0 +1,17 @@
+{
+  "name": "ahmadfiazjan",
+  "owner": {
+    "name": "Ahmad Fiaz Jan",
+    "url": "https://ahmadfiaz.me"
+  },
+  "description": "Ahmad Fiaz Jan's agent skills for building and shipping products. One plugin per category.",
+  "plugins": [
+    {
+      "name": "ahmadfiazjan-product",
+      "source": "./skills/product",
+      "description": "Product skills: put a product in front of users and measure it, with privacy done properly.",
+      "category": "product",
+      "keywords": ["analytics", "privacy", "self-hosted", "rybbit", "consent"]
+    }
+  ]
+}

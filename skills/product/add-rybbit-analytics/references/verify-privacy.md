@@ -74,7 +74,7 @@ Ask the user first. Delete only rows for `TEST_ID`, and show the ID to the user 
 docker compose exec clickhouse clickhouse-client -d analytics --query "ALTER TABLE events DELETE WHERE site_id = TEST_ID"
 ```
 
-Repeat for each `session_replay*` table (`SHOW TABLES LIKE 'session_replay%'`). Then delete the test site in the dashboard.
+Repeat for each `session_replay*` table (`SHOW TABLES LIKE 'session_replay%'`). Then delete the test site in the dashboard. Deleting the site alone does not remove its rows from `events` right away, so run the deletes above first and confirm each count is 0.
 
 ## After shipping
 
